@@ -1,0 +1,30 @@
+﻿
+<style>
+    .card
+    {
+        text-align: center;
+        border: 2px solid linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+        padding: 120px 80px;
+        background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+        width: 80 px;
+        height: 200 px;
+        border-radius: 25px;
+        position: absolute;
+    }
+</style>
+
+<div class="card">
+    <h3>@cdName</h3>
+</div>
+
+@code {
+    [Parameter]
+    public int id { get; set; } = -1;
+    private string cdName = "NoName";
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        cdName = Info.AllCard[id].Name;
+    }
+
+}
