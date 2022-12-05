@@ -25,8 +25,14 @@ namespace FishCardGame.FirstDemo
                 Console.WriteLine($"第{++cnt}回合\n{player.PlayerName}的回合");
                 if (player.Cards.Count == 0)
                 {
-                    if(!requestRest)
-                    Console.WriteLine("你的牌组已耗尽，正在重新发牌...");
+                    if (!requestRest)
+                        Console.WriteLine("你的牌组已耗尽，正在重新发牌...");
+                    else
+                    {
+                        Console.WriteLine("正在重新发牌...");
+                        requestRest = false;
+                    }
+                        
                     PlayCard.GetNewCards(player);
                 }
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -44,7 +50,7 @@ namespace FishCardGame.FirstDemo
                 int num = int.Parse(Console.ReadLine()!);
                 if (num > player.Cards.Count)
                 {
-                    Console.WriteLine("输入错误，超出了所有牌的范围");
+                    Console.WriteLine("超出了所有牌的范围,请注意编号");
                     continue;
                 }
                 if (num == -1)
@@ -54,6 +60,7 @@ namespace FishCardGame.FirstDemo
                         restartnum--;
                         player.ClearCards();
                         computer.ClearCards();
+                        requestRest = true;
                     }
                     else
                     {
