@@ -21,9 +21,9 @@
             new CureCard("治疗 III" ,"恢复3点生命" ,3, 3 , GetNextId()) ,
             new CureCard("治疗 IV" ,"恢复4点生命" , 4 ,4, GetNextId()) ,
             new CureCard("治疗 V" ,"恢复5点生命" , 5,5 , GetNextId()),
-            new MakeCard("摸牌 I" , "多拿一张牌" , 3 , 1 , GetNextId()) ,
-            new MakeCard("摸牌 II" , "多拿两张牌" , 4 , 2 , GetNextId()) ,
-            new MakeCard("摸牌 III" , "多拿三张牌" , 5 , 3 , GetNextId())
+            new MakeCard("摸牌 I" , "多拿三张牌" , 3 , 1 , GetNextId()) ,
+            new MakeCard("摸牌 II" , "多拿四张牌" , 4 , 2 , GetNextId()) ,
+            new MakeCard("摸牌 III" , "多拿五张牌" , 5 , 3 , GetNextId())
         };
 
         public static Player Empty = new Player("Empty", 0, 0);

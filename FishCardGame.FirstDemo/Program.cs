@@ -5,7 +5,7 @@ namespace FishCardGame.FirstDemo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("FishCardGame 第一版Demo , 基于0.0.1-alpha1");
+            Console.WriteLine("FishCardGame 第二版Demo , 基于0.0.1-alpha2");
             Console.WriteLine("输入初始生命值");
             Info.DefaultHeart = int.Parse(Console.ReadLine()!);
             Console.WriteLine("输入默认手牌数");
@@ -18,12 +18,14 @@ namespace FishCardGame.FirstDemo
             PlayCard.GetNewCards(player);
             PlayCard.GetNewCardsAs(computer, player);
             int cnt = 0, restartnum = 5;
+            bool requestRest = false;
             Random random = new Random();
             while (player.Heart > 0 && computer.Heart > 0)
             {
-                Console.WriteLine($"第{++cnt}回合\n你的回合");
+                Console.WriteLine($"第{++cnt}回合\n{player.PlayerName}的回合");
                 if (player.Cards.Count == 0)
                 {
+                    if(!requestRest)
                     Console.WriteLine("你的牌组已耗尽，正在重新发牌...");
                     PlayCard.GetNewCards(player);
                 }
@@ -31,10 +33,14 @@ namespace FishCardGame.FirstDemo
                 Console.WriteLine($"{player.PlayerName} 的牌组: ");
                 for (int i = 0; i < player.Cards.Count; i++)
                 {
-                    Console.WriteLine($"[{i + 1}] {player.Cards[i].ToString()}");
+                    Console.WriteLine($"[{i + 1}] {player.Cards[i]}");
                 }
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"输入你要使用的卡牌编号,输入-1来重新发牌，手动重新发牌的次数还剩{restartnum}次");
+                Console.WriteLine($"输入你要使用的卡牌编号,或者输入-1来重新发牌，手动重新发牌的次数还剩{restartnum}次。");
+                if(player.Cards.Count > Info.DefaultCardCount) 
+                {
+                    Console.WriteLine("注意，洗牌后额外获得的牌会被清除。");
+                }
                 int num = int.Parse(Console.ReadLine()!);
                 if (num > player.Cards.Count)
                 {
