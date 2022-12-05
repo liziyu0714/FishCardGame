@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.ResponseCompression;
-
-namespace FishCardGame.UI
+namespace FishCardGame.UI.Server
 {
     public class Program
     {

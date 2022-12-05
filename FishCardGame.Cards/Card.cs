@@ -21,9 +21,9 @@
             new CureCard("治疗 III" ,"恢复3点生命" ,3, 3 , GetNextId()) ,
             new CureCard("治疗 IV" ,"恢复4点生命" , 4 ,4, GetNextId()) ,
             new CureCard("治疗 V" ,"恢复5点生命" , 5,5 , GetNextId()),
-            new MakeCard("摸牌 I" , "多拿一张牌" , 3 , 1 , GetNextId()) , 
+            new MakeCard("摸牌 I" , "多拿一张牌" , 3 , 1 , GetNextId()) ,
             new MakeCard("摸牌 II" , "多拿两张牌" , 4 , 2 , GetNextId()) ,
-            new MakeCard("摸牌 III" , "多拿三张牌" , 5 , 3 , GetNextId()) 
+            new MakeCard("摸牌 III" , "多拿三张牌" , 5 , 3 , GetNextId())
         };
 
         public static Player Empty = new Player("Empty", 0, 0);
@@ -67,7 +67,7 @@
             return $"{Name} , id: {Id} , info :{Info}";
         }
 
-        public virtual void UseCard( Player? self = null , Player? target = null)
+        public virtual void UseCard(Player? self = null, Player? target = null)
         {
 
         }
@@ -81,12 +81,12 @@
         {
             AttackValue = attackValue;
         }
-        public AttackCard(string name = "Default Attack Card", string info = "Default Attack Card , This Card do not contain any infomation", int attackValue = 1, int star = 0, int id = -1) : base(name, info, id,star)
+        public AttackCard(string name = "Default Attack Card", string info = "Default Attack Card , This Card do not contain any infomation", int attackValue = 1, int star = 0, int id = -1) : base(name, info, id, star)
         {
             AttackValue = attackValue;
         }
 
-        public override void UseCard( Player? self = null , Player? target = null)
+        public override void UseCard(Player? self = null, Player? target = null)
         {
             target!.Heart -= AttackValue;
         }
@@ -101,7 +101,7 @@
             CureValue = cureValue;
         }
 
-        public CureCard(string name = "Default Cure Card", string info = "Default Cure Card , This Card do not contain any infomation", int cureValue = 1, int star = 0, int id = -1) : base(name, info, id,star)
+        public CureCard(string name = "Default Cure Card", string info = "Default Cure Card , This Card do not contain any infomation", int cureValue = 1, int star = 0, int id = -1) : base(name, info, id, star)
         {
             CureValue = cureValue;
         }
@@ -126,7 +126,7 @@
         public override void UseCard(Player? self = null, Player? target = null)
         {
             Random random = new Random();
-            for(int i = 0; i < Count; i++)
+            for (int i = 0; i < Count; i++)
             {
                 self!.AddCard(FishCardGame.Cards.Info.AllCard[random.Next(0, FishCardGame.Cards.Info.AllCard.Count)]);
             }
