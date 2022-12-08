@@ -1,0 +1,92 @@
+﻿.spinner {
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    text-size-adjust:150%;
+}
+
+.cube1, .cube2 {
+    background-color : azure;
+    border: dashed;
+    border-radius: 8px 10px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-animation: cubemove 1.8s infinite ease-in-out;
+    animation: cubemove 1.8s infinite ease-in-out;
+    
+}
+.cube1{
+    background-image:url("sword.png");
+    background-repeat: no-repeat;
+    object-fit: contain;
+    background-size: 100%;
+}
+
+.cube2 {
+    background-image: url("heart.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+@-webkit-keyframes cubemove {
+    25% {
+        -webkit-transform: translateX(64px) rotate(-90deg) scale(0.5)
+    }
+
+    50% {
+        -webkit-transform: translateX(64px) translateY(64px) rotate(-180deg)
+    }
+
+    75% {
+        -webkit-transform: translateX(0px) translateY(64px) rotate(-270deg) scale(0.5)
+    }
+
+    100% {
+        -webkit-transform: rotate(-360deg)
+    }
+}
+
+@keyframes cubemove {
+    25% {
+        transform: translateX(64px) rotate(-90deg) scale(0.5);
+        -webkit-transform: translateX(64px) rotate(-90deg) scale(0.5);
+    }
+
+    50% {
+        transform: translateX(64px) translateY(64px) rotate(-179deg);
+        -webkit-transform: translateX(64px) translateY(64px) rotate(-179deg);
+    }
+
+    50.1% {
+        transform: translateX(64px) translateY(64px) rotate(-180deg);
+        -webkit-transform: translateX(64px) translateY(64px) rotate(-180deg);
+    }
+
+    75% {
+        transform: translateX(0px) translateY(64px) rotate(-270deg) scale(0.5);
+        -webkit-transform: translateX(0px) translateY(64px) rotate(-270deg) scale(0.5);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+        -webkit-transform: rotate(-360deg);
+    }
+}
+
+<div id="app">
+        <div class="spinner">
+            <div class="cube1"></div>
+            <div class="cube2"></div>
+        </div>
+        
+    </div>
